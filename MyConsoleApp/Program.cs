@@ -89,20 +89,27 @@ namespace MyConsoleApp{
 
             Console.WriteLine("========     SimpleMethod     ========");
             // HelloWorld();
-            PrintToConsole(ReverseString("Hello World"));
+            DisplayMessage(ReverseString("Hello World"));
+
+
+            
+            Console.WriteLine("========     Recursion       ========");
+            int fibonacci = Fibonacci(29);
+            Console.Write(fibonacci);
         }
-        private static void HelloWorld() {
-            Console.WriteLine("Hello world!");
-        }
-        private static char[] ReverseString(string message) {
+        private static char [] ReverseString(string message) {
             char[] messageArray = message.ToCharArray();
             Array.Reverse(messageArray);
             return messageArray;
         }
-        private static void PrintToConsole(char [] messageArray) {
+        private static void DisplayMessage(char [] messageArray) {
             foreach(char item in messageArray) {
                 Console.Write(item);
             }
+        }
+        private static int Fibonacci(int n) {
+            if(n <= 1) return n;
+            else return Fibonacci(n - 1) + Fibonacci(n - 2);
         }
     }
 }
