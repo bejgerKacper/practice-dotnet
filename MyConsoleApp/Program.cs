@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Data;
 using System.Security.Cryptography.X509Certificates;
 
 namespace MyConsoleApp{
     class Program{
-        static void Main(string[] args){
-            Console.WriteLine("========     HelloWorld      ========");        
+        static void Main(string[] args) {
+            Console.WriteLine("========     HelloWorld       ========");        
             // Console.WriteLine("Hello World");
 
-            Console.WriteLine("========     Variables       ========");
+            Console.WriteLine("========     Variables        ========");
             // int x = 7;
             // int y = x + 3;
             // Console.WriteLine(y);
@@ -21,7 +22,7 @@ namespace MyConsoleApp{
             // // string lastName = Console.ReadLine();
             // Console.WriteLine("Hello, " + firstName + " " + lastName);
 
-            Console.WriteLine("========     Decisions       ========");
+            Console.WriteLine("========     Decisions        ========");
             // Console.Write("Choose a door: 1, 2 or 3: ");
             // string userInput = Console.ReadLine();
             // string message = "";
@@ -35,7 +36,7 @@ namespace MyConsoleApp{
             // string message = (userInput == "1") ? "boat" : "strand of lint";
             // Console.WriteLine("You entered: {0}, therefore you won a {1}.", userInput, message);
 
-            Console.WriteLine("========     DataTypes       ========");
+            Console.WriteLine("========     DataTypes        ========");
             // int myInt = 9;
             // double myDouble = 8.99;
             // ulong myUlong = 18446744073709551615;
@@ -44,7 +45,7 @@ namespace MyConsoleApp{
             // bool myBoolean = false;
             // string myString = "Hello World";
 
-            Console.WriteLine("========     TypeCasting     ========");
+            Console.WriteLine("========     TypeCasting      ========");
             /* implicit Casting (automatically) - converting a smaller type to a larger type size
             char -> int -> long -> float -> double */
             // int myInt = 9;
@@ -54,17 +55,54 @@ namespace MyConsoleApp{
             // double myDouble = 9.78;
             // int myInt = (int) myDouble;    // manual casting: double to int
             /* type conversion methods */
-            int myInt = 10;
-            double myDouble = 5.25;
-            bool myBool = true;
-            Convert.ToString(myInt);          // convert int to string
-            Convert.ToDouble(myInt);          // convert int to double
-            Convert.ToInt32(myDouble);        // convert double to int
-            Convert.ToString(myBool);         // convert bool to string
-            Console.WriteLine("========     Operators       ========");
-            int c = 1;
-            // in-line conditional operator
-            string message = (c == 1) ? "Car" : "Boat";
+            // int myInt = 10;
+            // double myDouble = 5.25;
+            // bool myBool = true;
+            // Convert.ToString(myInt);          // convert int to string
+            // Convert.ToDouble(myInt);          // convert int to double
+            // Convert.ToInt32(myDouble);        // convert double to int
+            // Convert.ToString(myBool);         // convert bool to string
+
+            Console.WriteLine("========     Operators        ========");
+            // int c = 1;
+            // // in-line conditional operator
+            // string message = (c == 1) ? "Car" : "Boat";
+
+            Console.WriteLine("========     For              ========");
+            // string[] names = new string[] {"aaa", "bbb", "ccc", "ddd"};
+            // for (int i = 0; i < 10; i++) {
+            //     // Console.WriteLine(i);
+            //     if(i == 7) {
+            //         Console.WriteLine("Found seven!");
+            //         break;
+            //     }
+            // foreach(string name in names) {
+            //     Console.WriteLine(name);
+            // }
+            Console.WriteLine("========     Arrays           ========");
+            // int[] nums = new int[5];
+            // int[] numbers = new int[] {4, 8, 15, 23, 42};
+
+            // for (int i = 0; i < numbers.Length; i++) {
+            //     Console.WriteLine(i);
+            // }
+
+            Console.WriteLine("========     SimpleMethod     ========");
+            // HelloWorld();
+            PrintToConsole(ReverseString("Hello World"));
+        }
+        private static void HelloWorld() {
+            Console.WriteLine("Hello world!");
+        }
+        private static char[] ReverseString(string message) {
+            char[] messageArray = message.ToCharArray();
+            Array.Reverse(messageArray);
+            return messageArray;
+        }
+        private static void PrintToConsole(char [] messageArray) {
+            foreach(char item in messageArray) {
+                Console.Write(item);
+            }
         }
     }
-}   
+}
