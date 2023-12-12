@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Dynamic;
 using System.Security.Cryptography.X509Certificates;
@@ -133,6 +134,23 @@ namespace MyConsoleApp {
             // Console.WriteLine(myAge.TotalHours);
             
             Console.WriteLine("===== SimpleClasses =====");
+            // Car myCar = new Car();
+            // myCar.Make = "Oldsmobile";
+            // myCar.Model = "Cutlas Supreme";
+            // myCar.Year = 1986;
+            // myCar.Color = "Silver";
+            // Console.WriteLine("{0} {1} {2} {3}", 
+            //     myCar.Make, 
+            //     myCar.Model, 
+            //     myCar.Year, 
+            //     myCar.Color);
+            // // decimal value = DetermineMarketValue(myCar);
+            // // Console.WriteLine("{0:C},", value);
+            // Console.WriteLine("{0:C}", myCar.DetermineMarketValue());
+
+            Console.WriteLine("===== ObjectLifeTime =====");
+            Car myCar = new Car();
+            
         }
         private static char [] ReverseString(string message) {
             char[] messageArray = message.ToCharArray();
@@ -200,6 +218,18 @@ namespace MyConsoleApp {
                 else Console.WriteLine("Wrong! Guess {0}", guesses);
             } while (incorrect);
             Console.ReadLine();
+        }
+    }
+    class Car {
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int Year {get; set; }
+        public string Color {get; set; }
+        public decimal DetermineMarketValue() {
+            decimal carValue;
+            if (Year > 1990) carValue = 10000;
+            else carValue = 2000;
+            return carValue;
         }
     }
 }
