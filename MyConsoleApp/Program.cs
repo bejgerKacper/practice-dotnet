@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Dynamic;
+using System.Linq.Expressions;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Xml.XPath;
@@ -149,8 +150,9 @@ namespace MyConsoleApp {
             // Console.WriteLine("{0:C}", myCar.DetermineMarketValue());
 
             Console.WriteLine("===== ObjectLifeTime =====");
-            Car myCar = new Car();
-            
+            // Car myCar = new Car("Oldsmobile", "Cutlas Supreme", 1986, "Silver");
+            // Car.MyMethod();
+            Car Ford = new Car("Oldsmobile", "Cutlas Supreme", 1986, "Silver");
         }
         private static char [] ReverseString(string message) {
             char[] messageArray = message.ToCharArray();
@@ -225,6 +227,13 @@ namespace MyConsoleApp {
         public string Model { get; set; }
         public int Year {get; set; }
         public string Color {get; set; }
+
+        public Car(string make, string model, int year, string color) {
+            Make = make;
+            Model = model;
+            Year = year;
+            Color = color;
+        }
         public decimal DetermineMarketValue() {
             decimal carValue;
             if (Year > 1990) carValue = 10000;
